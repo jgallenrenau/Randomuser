@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		140F8B782AF409830064C2A6 /* Data in Frameworks */ = {isa = PBXBuildFile; productRef = 140F8B772AF409830064C2A6 /* Data */; };
+		140F8B7A2AF409830064C2A6 /* Domain in Frameworks */ = {isa = PBXBuildFile; productRef = 140F8B792AF409830064C2A6 /* Domain */; };
 		14C778352AF10A3300E5B744 /* RandomUserApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C778342AF10A3300E5B744 /* RandomUserApp.swift */; };
 		14C778372AF10A3300E5B744 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C778362AF10A3300E5B744 /* ContentView.swift */; };
 		14C778392AF10A3300E5B744 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C778382AF10A3300E5B744 /* Item.swift */; };
@@ -35,6 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		140F8B752AF407FF0064C2A6 /* RandomUserPackage */ = {isa = PBXFileReference; lastKnownFileType = text; path = RandomUserPackage; sourceTree = SOURCE_ROOT; };
 		14C778312AF10A3300E5B744 /* RandomUser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RandomUser.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		14C778342AF10A3300E5B744 /* RandomUserApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomUserApp.swift; sourceTree = "<group>"; };
 		14C778362AF10A3300E5B744 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -54,6 +57,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				140F8B7A2AF409830064C2A6 /* Domain in Frameworks */,
+				140F8B782AF409830064C2A6 /* Data in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,6 +79,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		140F8B762AF409830064C2A6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		14C778282AF10A3300E5B744 = {
 			isa = PBXGroup;
 			children = (
@@ -81,6 +93,7 @@
 				14C778472AF10A3400E5B744 /* RandomUserTests */,
 				14C778512AF10A3500E5B744 /* RandomUserUITests */,
 				14C778322AF10A3300E5B744 /* Products */,
+				140F8B762AF409830064C2A6 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -97,6 +110,7 @@
 		14C778332AF10A3300E5B744 /* RandomUser */ = {
 			isa = PBXGroup;
 			children = (
+				140F8B752AF407FF0064C2A6 /* RandomUserPackage */,
 				14C778342AF10A3300E5B744 /* RandomUserApp.swift */,
 				14C778362AF10A3300E5B744 /* ContentView.swift */,
 				14C778382AF10A3300E5B744 /* Item.swift */,
@@ -148,6 +162,10 @@
 			dependencies = (
 			);
 			name = RandomUser;
+			packageProductDependencies = (
+				140F8B772AF409830064C2A6 /* Data */,
+				140F8B792AF409830064C2A6 /* Domain */,
+			);
 			productName = RandomUser;
 			productReference = 14C778312AF10A3300E5B744 /* RandomUser.app */;
 			productType = "com.apple.product-type.application";
@@ -621,6 +639,17 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		140F8B772AF409830064C2A6 /* Data */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Data;
+		};
+		140F8B792AF409830064C2A6 /* Domain */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Domain;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 14C778292AF10A3300E5B744 /* Project object */;
 }
