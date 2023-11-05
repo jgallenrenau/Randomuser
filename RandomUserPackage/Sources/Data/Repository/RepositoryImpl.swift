@@ -12,7 +12,7 @@ public class RepositoryImpl: Repository {
 
     private let apiManager: ApiManager
     
-    private static let maxResults = 6
+    private static let maxResults = 20
     
     public init(apiManager: ApiManager) {
         self.apiManager = apiManager
