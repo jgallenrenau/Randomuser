@@ -21,7 +21,7 @@ public class ApiManagerImpl: ApiManager {
 
 extension ApiManagerImpl {
     
-    public func getUsers(page: Int, results: Int, completion: @escaping (Result<[UserTO], Error>) -> Void) {
+    public func getUsers(page: Int, results: Int, completion: @escaping (Result<UserResultTO, Error>) -> Void) {
         
         provider.requestFilterErrors(.getUsers(page: page, results: results),
                                      completion: MoyaCompletionTransformer.mapJsonDecoder(completion))

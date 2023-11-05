@@ -13,13 +13,17 @@ enum UserRandomApi: Equatable {
     case getUsers(page: Int, results: Int)
     
     static func == (lhs: UserRandomApi, rhs: UserRandomApi) -> Bool {
+        
         return lhs.path == rhs.path && lhs.method == rhs.method
     }
 }
 
 extension UserRandomApi: TargetType, AccessTokenAuthorizable {
+    
     var authorizationType: AuthorizationType? {
+        
         switch self {
+            
         case .getUsers:
             return .bearer
         }
@@ -31,10 +35,11 @@ extension UserRandomApi: TargetType, AccessTokenAuthorizable {
     }
     
     var path: String {
+        
         switch self {
             
         case .getUsers:
-            return "users"
+            return ""
         }
     }
     
@@ -53,6 +58,7 @@ extension UserRandomApi: TargetType, AccessTokenAuthorizable {
             
         case .getUsers(let page, let results):
             return .requestParameters(parameters: ["page": page, "results": results], encoding: URLEncoding.default)
+//            return .requestPlain
         }
     }
     
@@ -61,6 +67,7 @@ extension UserRandomApi: TargetType, AccessTokenAuthorizable {
     }
     
     public var sampleData: Data {
+        
         return "".data(using: String.Encoding.utf8)!
     }
     
