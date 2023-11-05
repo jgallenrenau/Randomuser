@@ -10,7 +10,7 @@ import Domain
 
 struct UsersView: View {
     
-    @ObservedObject var store: UsersViewStore
+    @ObservedObject var store: UsersViewModel
     
     var onLoaded: () -> Void = {}
 
@@ -19,15 +19,6 @@ struct UsersView: View {
         NavigationView {
             
             ScrollView {
-                
-                if store.searchQuery != "" {
-                    
-                    Text("Results finded".uppercased())
-                        .font(.subheadline)
-                        .foregroundColor(.gray)
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                        .padding(.horizontal, 24)
-                }
                 
                 VStack(spacing: 16) {
                     
@@ -39,14 +30,26 @@ struct UsersView: View {
                             .autocapitalization(.none)
                             .disableAutocorrection(true)
                     }
-                    .padding(.vertical,12)
+                    .padding(.vertical, 12)
                     .padding(.horizontal)
                     .background(Color.white)
                     .shadow(color: Color.black.opacity(0.06), radius: 5, x: 5, y: 5)
                     .shadow(color: Color.black.opacity(0.06), radius: 5, x: -5, y: -5)
-                    
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 16)
+                            .stroke(Color.gray, lineWidth: 2)
+                    ).padding()
                 }
                 .padding()
+                
+                if store.searchQuery != "" {
+                    
+                    Text("Results finded".uppercased())
+                        .font(.subheadline)
+                        .foregroundColor(.gray)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .padding(.horizontal, 24)
+                }
                 
                 if let fetchedUsers = store.fetchedUsers {
                     
@@ -67,7 +70,7 @@ struct UsersView: View {
                             
                             let user: User = (store.fetchedUsers?[i])!
                             
-                            UserRowView(user: user)
+                            UserCellView(user: user)
                         }
                     }
                 }
@@ -86,9 +89,8 @@ struct UsersView: View {
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.horizontal, 24)
                     .padding(.top, 32)
-
                 
-                LazyVGrid(columns: [GridItem(.adaptive(minimum: 160), spacing: 20)], spacing: 40) {
+                LazyVGrid(columns: [GridItem(.adaptive(minimum: 160), spacing: 24)], spacing: 40) {
                     
                     ForEach(store.users.indices, id: \.self) { i in
                         
@@ -98,8 +100,7 @@ struct UsersView: View {
                             
                             VStack {
                                 
-                                UserRowView(user: user)
-                        
+                                UserCellView(user: user)
                             }
                         }
                     }
@@ -111,41 +112,6 @@ struct UsersView: View {
             .navigationTitle("Random User")
         }
         .navigationViewStyle(.stack)
-    }
-}
-
-struct UserRowView: View {
-    
-    var user: User
-    
-    var body: some View {
-        
-        HStack(alignment: .top, spacing: 40) {
-            
-            NavigationLink(destination: UsersFeatureAssembly.detailUsers(user)) {
-                
-                VStack {
-
-                    AsyncImage(url: URL(string: user.picture.large))
-                        .scaledToFill()
-                        .foregroundColor(.gray)
-                        .clipShape(Circle())
-                    
-                    Text(user.login.username)
-                        .font(.headline)
-                        .foregroundColor(.black)
-                        .padding(.horizontal, 12)
-                    
-                    Text(user.email)
-                        .font(.subheadline)
-                        .foregroundColor(.gray)
-
-                    Text(user.phone)
-                        .font(.subheadline)
-                        .foregroundColor(.gray)
-                }
-            }
-        }
     }
 }
 

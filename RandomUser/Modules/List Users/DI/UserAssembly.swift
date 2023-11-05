@@ -18,7 +18,7 @@ public class UsersAssembly {
     
     public func build() -> some View {
         
-        let store: UsersViewStore = UsersViewStore()
+        let store: UsersViewModel = UsersViewModel()
         var view: UsersView = UsersView(store: store)
         let params = GetUsersUseCaseParams(page: 0)
         

@@ -1,5 +1,5 @@
 //
-//  RandomUserApp.swift
+//  UsersViewModel.swift
 //  RandomUser
 //
 //  Created by JORDI GALLEN RENAU on 31/10/23.
@@ -10,7 +10,7 @@ import Domain
 import Combine
 import SwiftUI
 
-public final class UsersViewStore: ObservableObject {
+public final class UsersViewModel: ObservableObject {
     
     @Published var users: [User] = []
     @Published var searchQuery = ""
