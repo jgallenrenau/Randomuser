@@ -39,8 +39,7 @@ final class UsersRepositoryTest: XCTestCase {
                                         city: "Barcelona",
                                         state: "Catalunya",
                                         country: "Spain",
-                                        postcode: 08011,
-                                        coordinates: CoordinatesTO(latitude: "-30.5565", 
+                                        coordinates: CoordinatesTO(latitude: "-30.5565",
                                                                    longitude: "-131.7762"),
                                         timezone: TimezoneTO(offset: "+3:30", 
                                                              description: "Tehran")),
@@ -72,7 +71,6 @@ final class UsersRepositoryTest: XCTestCase {
                                         city: "Barcelona",
                                         state: "Catalunya",
                                         country: "Spain",
-                                        postcode: 08011,
                                         coordinates: CoordinatesTO(latitude: "-30.5565", 
                                                                    longitude: "-131.7762"),
                                         timezone: TimezoneTO(offset: "+3:30", 
@@ -99,8 +97,10 @@ final class UsersRepositoryTest: XCTestCase {
                    nat: "ES")
         ]
         
+        let userResult = UserResultTO.init(results: users)
+        
         // given
-        mockApiManager.getUsers.result = .success(users)
+        mockApiManager.getUsers.result = .success(userResult)
         
         // when
         let captor = CompletionResultCaptor<[User]>(testCase: self)

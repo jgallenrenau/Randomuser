@@ -1,11 +1,16 @@
 //
-//  UserTO.swift
+//  ResultUserTO.swift
 //
 //
 //  Created by JORDI GALLEN RENAU on 3/11/23.
 //
 
 import Foundation
+
+public struct UserResultTO: Decodable, Encodable {
+    
+    var results: [UserTO]
+}
 
 public struct UserTO: Decodable, Encodable {
     
@@ -36,7 +41,6 @@ public struct LocationTO: Codable {
     var city: String
     var state: String
     var country: String
-    var postcode: Int
     var coordinates: CoordinatesTO
     var timezone: TimezoneTO
 }
@@ -85,7 +89,7 @@ public struct RegisteredTO: Codable {
 public struct IdTO: Codable {
     
     var name: String
-    var value: String
+    var value: String?
 }
 
 public struct PictureTO: Codable {
