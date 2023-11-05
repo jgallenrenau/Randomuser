@@ -12,12 +12,12 @@ import XCTest
 final class GetUsersUseCaseTest: XCTestCase {
     
     var mockRepository: MockRepository!
-    var sut: GetUserUseCase!
+    var sut: GetUsersUseCase!
     
     override func setUp() {
         
         mockRepository = MockRepository()
-        sut = GetUserUseCase(repository: mockRepository)
+        sut = GetUsersUseCase(repository: mockRepository)
     }
     
     override func tearDown() {
@@ -38,7 +38,6 @@ final class GetUsersUseCaseTest: XCTestCase {
                                       city: "Barcelona",
                                       state: "Catalunya",
                                       country: "Spain",
-                                      postcode: 08011,
                                       coordinates: Coordinates(latitude: "-30.5565", longitude: "-131.7762")),
                  email: "jordigr.bcn@gmail.com",
                  login: Login(uuid: "ab92b927-e804-422a-9b2d-ecaa01c28be4",
@@ -54,7 +53,6 @@ final class GetUsersUseCaseTest: XCTestCase {
                                       city: "Barcelona",
                                       state: "Catalunya",
                                       country: "Spain",
-                                      postcode: 08011,
                                       coordinates: Coordinates(latitude: "-30.5565", longitude: "-131.7762")),
                  email: "jordigr.bcn@gmail.com",
                  login: Login(uuid: "ab92b927-e804-422a-9b2d-ecaa01c28be4",
@@ -65,7 +63,7 @@ final class GetUsersUseCaseTest: XCTestCase {
                  nat: "ES")
 
         ]
-        let params = GetUserUseCaseParams(page: 1)
+        let params = GetUsersUseCaseParams(page: 1)
         mockRepository.getUsers.result = .success(users)
 
         // when

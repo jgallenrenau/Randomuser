@@ -21,8 +21,8 @@ public struct UserMapper: Mapper {
                  city: input.city,
                  state: input.state,
                  country: input.country,
-                 postcode: input.postcode,
-                 coordinates: mapCoordinates(input: input.coordinates))
+                 coordinates: mapCoordinates(input: input.coordinates)
+        )
     }
     
     static public func mapStreet(input: StreetTO) -> Street {
@@ -48,7 +48,7 @@ public struct UserMapper: Mapper {
         Picture(large: input.large, thumbnail: input.thumbnail)
     }
     
-    static public func map(input: [UserTO]) -> [User] {
+    static public func mapUser(input: [UserTO]) -> [User] {
         
         return input.map { userTO -> User in
             
@@ -61,5 +61,10 @@ public struct UserMapper: Mapper {
                  picture: mapPicture(input: userTO.picture),
                  nat: userTO.nat)
         }
+    }
+    
+    static public func map(input: UserResultTO) -> UserResult {
+        
+        UserResult(result: mapUser(input: input.results))
     }
 }

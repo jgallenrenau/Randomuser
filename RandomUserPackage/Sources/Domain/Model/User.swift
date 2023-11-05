@@ -7,6 +7,15 @@
 
 import Foundation
 
+public struct UserResult: Codable {
+    
+    public var result: [User]
+    
+    public init(result: [User]) {
+        self.result = result
+    }
+}
+
 public struct User: Codable {
     
     public var gender: String
@@ -60,21 +69,19 @@ public struct Location: Codable {
     public var city: String
     public var state: String
     public var country: String
-    public var postcode: Int
     public var coordinates: Coordinates
 
     public init(street: Street,
                 city: String,
                 state: String,
                 country: String,
-                postcode: Int,
-                coordinates: Coordinates) {
+                coordinates: Coordinates
+    ) {
         
         self.street = street
         self.city = city
         self.state = state
         self.country = country
-        self.postcode = postcode
         self.coordinates = coordinates
     }
 }

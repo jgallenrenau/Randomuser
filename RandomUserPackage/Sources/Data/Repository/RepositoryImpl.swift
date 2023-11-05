@@ -12,21 +12,22 @@ public class RepositoryImpl: Repository {
 
     private let apiManager: ApiManager
     
-    private static let maxResults = 20
+    private static let maxResults = 6
     
     public init(apiManager: ApiManager) {
         self.apiManager = apiManager
     }
     
     public func getUsers(page: Int, completion: @escaping (Result<[User], Swift.Error>) -> Void) {
-        
+         
         apiManager.getUsers(page: page, results: RepositoryImpl.maxResults, completion: { result in
             
             switch result {
                 
             case .success(let response):
                 let map = UserMapper.map(input: response)
-                completion(.success(map))
+                
+                completion(.success(map.result))
                 
             case .failure(let error):
                 completion(.failure(error))

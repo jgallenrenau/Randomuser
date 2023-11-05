@@ -11,5 +11,5 @@ import Domain
 import Combine
 
 public protocol ApiManager {
-    func getUsers(page: Int, results: Int, completion: @escaping (Result<[UserTO], Error>) -> Void)
+    func getUsers(page: Int, results: Int, completion: @escaping (Result<UserResultTO, Error>) -> Void)
 }

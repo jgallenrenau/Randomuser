@@ -7,7 +7,7 @@
 
 import Foundation
 
-public class GetUserUseCaseParams: UseCaseParams {
+public class GetUsersUseCaseParams: UseCaseParams {
     
     public let page: Int
 
@@ -17,7 +17,7 @@ public class GetUserUseCaseParams: UseCaseParams {
     }
 }
 
-public class GetUserUseCase: QueryCallableUseCase<[User], GetUserUseCaseParams> {
+public class GetUsersUseCase: QueryCallableUseCase<[User], GetUsersUseCaseParams> {
     
     private let repository: Repository
     
@@ -26,7 +26,7 @@ public class GetUserUseCase: QueryCallableUseCase<[User], GetUserUseCaseParams> 
         self.repository = repository
     }
     
-    public override func execute(params: GetUserUseCaseParams? = nil,
+    public override func execute(params: GetUsersUseCaseParams? = nil,
                                  completion: @escaping ResultCompletion<[User]>) {
         
         guard let params = params else {
