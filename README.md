@@ -1,3 +1,12 @@
+<img src="images/icon/banner.png"/>
+
+![Swift Badge](https://img.shields.io/badge/MADE%20WITH-SWIFT-red?style=for-the-badge&logo=swift)
+[![Build Status](https://img.shields.io/badge/platforms-iOS%20%7C%20tvOS%20%7C%20macOS%20%7C%20watchOS-green.svg)](https://github.com/Jinxiansen/SwiftUI)
+[![Swift](https://img.shields.io/badge/Swift-5.1-orange.svg)](https://swift.org)
+[![Xcode](https://img.shields.io/badge/Xcode-11.0-blue.svg)](https://developer.apple.com/xcode)
+[![Xcode](https://img.shields.io/badge/macOS-15.0-blue.svg)](https://developer.apple.com/macOS)
+[![MIT](https://img.shields.io/badge/licenses-MIT-red.svg)](https://opensource.org/licenses/MIT)
+
 # Randomuser 
 
 ## iOS App using SPM's + Clean Architecture and MVVM
@@ -11,9 +20,6 @@ This sample project is inspired on [The Clean Architecture](https://8thlight.com
 Its main goal is to follow the [SOLID principles](https://en.wikipedia.org/wiki/SOLID) in order to keep the software well organised, testable, easy to maintain and more importantly easy to extend/change.
 
 As explained in the posts above and in [the book](https://www.amazon.com/Clean-Architecture-Craftsmans-Software-Structure/dp/0134494164), databases, network clients and frameworks are abstracted in the upper layers (Entities, Data and Domain layers) and should not be imported/referenced into them, instead they should be injected in the App level as dependencies through the interfaces exposed by the upper layers.
-
-![graph](
-https://8thlight.com/blog/assets/posts/2012-08-13-the-clean-architecture/CleanArchitecture-8d1fe066e8f7fa9c7d8e84c1a6b0e2b74b2c670ff8052828f4a7e73fcbbc698c.jpg)
 
 ## Modules
 
@@ -42,10 +48,27 @@ This module exposes `UseCases` to process business logic using the [Command Patt
 * **Data Repositories Layer** = Repositories Implementations + API (Network) + Persistence DB
 * **Presentation Layer (MVVM)** = ViewModels + Views
 
-### App
+## App
 
 In this layer we have all the code that's specific to the platform of development. In this sample project the platform is iOS, furthermore a concrete implementation of the `CacheInterface` exposed by the `Data layer` was implemented in the `App layer` using `UserDefaults` as the persistence choice, for example.
 This layer may have `ViewModels`, `Coordinators`, `ViewControllers`, `Views`, third party frameworks and, finally, is also responsible for setting up the dependency graph for the project by linking all the interfaces to their respective concrete classes.
+
+## Visual examples of the App
+
+### List Random Users
+
+
+
+### Search Random Users
+
+
+
+### Detail Random Users
+
+
+
+### Darkmode List Random Users
+
 
 ## Tests
 
