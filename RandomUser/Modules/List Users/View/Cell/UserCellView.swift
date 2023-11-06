@@ -28,15 +28,17 @@ struct UserCellView: View {
                     Text(user.login.username)
                         .font(.headline)
                         .foregroundColor(.black)
-                        .padding(.horizontal, 12)
+                        .padding(.top, 2)
                     
-                    Text(user.email)
-                        .font(.subheadline)
-                        .foregroundColor(.gray)
-
                     Text(user.phone)
-                        .font(.subheadline)
                         .foregroundColor(.gray)
+                        .font(.system(size: 14))
+                        .padding(.top, 2)
+
+                    Text(user.email)
+                        .font(.system(size: 12))
+                        .foregroundColor(.gray)
+                        .padding(.top, 1)
                 }
             }
         }

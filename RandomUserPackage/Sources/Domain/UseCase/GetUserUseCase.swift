@@ -36,4 +36,5 @@ public class GetUsersUseCase: QueryCallableUseCase<[User], GetUsersUseCaseParams
         
         repository.getUsers(page: params.page, completion: completion)
     }
+    
 }

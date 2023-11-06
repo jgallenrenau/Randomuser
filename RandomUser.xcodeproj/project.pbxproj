@@ -19,7 +19,6 @@
 		142DFDF12AF80E0D008B148F /* UserCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142DFDF02AF80E0D008B148F /* UserCellView.swift */; };
 		14796B592AF57DAE00E09597 /* DetailUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14796B582AF57DAE00E09597 /* DetailUserView.swift */; };
 		14C778352AF10A3300E5B744 /* RandomUserApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C778342AF10A3300E5B744 /* RandomUserApp.swift */; };
-		14C778392AF10A3300E5B744 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C778382AF10A3300E5B744 /* Item.swift */; };
 		14C7783B2AF10A3400E5B744 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 14C7783A2AF10A3400E5B744 /* Assets.xcassets */; };
 		14C7783F2AF10A3400E5B744 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 14C7783E2AF10A3400E5B744 /* Preview Assets.xcassets */; };
 		14C778492AF10A3400E5B744 /* RandomUserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C778482AF10A3400E5B744 /* RandomUserTests.swift */; };
@@ -57,7 +56,6 @@
 		14796B582AF57DAE00E09597 /* DetailUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailUserView.swift; sourceTree = "<group>"; };
 		14C778312AF10A3300E5B744 /* RandomUser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RandomUser.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		14C778342AF10A3300E5B744 /* RandomUserApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomUserApp.swift; sourceTree = "<group>"; };
-		14C778382AF10A3300E5B744 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		14C7783A2AF10A3400E5B744 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		14C7783C2AF10A3400E5B744 /* RandomUser.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = RandomUser.entitlements; sourceTree = "<group>"; };
 		14C7783E2AF10A3400E5B744 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -124,9 +122,9 @@
 		140F8B8E2AF512030064C2A6 /* List Users */ = {
 			isa = PBXGroup;
 			children = (
-				142DFDF32AF80EF7008B148F /* View */,
 				140F8B942AF5170D0064C2A6 /* DI */,
 				142DFDF22AF80EEA008B148F /* ViewModel */,
+				142DFDF32AF80EF7008B148F /* View */,
 			);
 			path = "List Users";
 			sourceTree = "<group>";
@@ -143,7 +141,7 @@
 			isa = PBXGroup;
 			children = (
 				140F8B982AF540730064C2A6 /* DI */,
-				14796B582AF57DAE00E09597 /* DetailUserView.swift */,
+				142DFDF82AF81BC0008B148F /* View */,
 			);
 			path = "Detail User";
 			sourceTree = "<group>";
@@ -181,6 +179,14 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		142DFDF82AF81BC0008B148F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				14796B582AF57DAE00E09597 /* DetailUserView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		14C778282AF10A3300E5B744 = {
 			isa = PBXGroup;
 			children = (
@@ -209,7 +215,6 @@
 				140F8B7B2AF50DE40064C2A6 /* DI */,
 				140F8B8D2AF511DC0064C2A6 /* Modules */,
 				14C778342AF10A3300E5B744 /* RandomUserApp.swift */,
-				14C778382AF10A3300E5B744 /* Item.swift */,
 				14C7783A2AF10A3400E5B744 /* Assets.xcassets */,
 				14C7783C2AF10A3400E5B744 /* RandomUser.entitlements */,
 				14C7783D2AF10A3400E5B744 /* Preview Content */,
@@ -380,7 +385,6 @@
 				140F8B9B2AF540920064C2A6 /* DetailUserAssembly.swift in Sources */,
 				140F8B8B2AF50EB30064C2A6 /* UserFeatureAssembly.swift in Sources */,
 				140F8B922AF5137E0064C2A6 /* UsersViewModel.swift in Sources */,
-				14C778392AF10A3300E5B744 /* Item.swift in Sources */,
 				14C778352AF10A3300E5B744 /* RandomUserApp.swift in Sources */,
 				140F8B8A2AF50EB30064C2A6 /* RepositoryAssembly.swift in Sources */,
 				140F8B962AF517230064C2A6 /* UserAssembly.swift in Sources */,
@@ -543,6 +547,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = RandomUser/RandomUser.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"RandomUser/Preview Content\"";
@@ -567,6 +572,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.jordiGallen.randomuser.RandomUser;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -581,6 +587,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = RandomUser/RandomUser.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"RandomUser/Preview Content\"";
@@ -605,6 +612,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.jordiGallen.randomuser.RandomUser;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
 				SWIFT_EMIT_LOC_STRINGS = YES;

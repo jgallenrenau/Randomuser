@@ -8,12 +8,14 @@
 import SwiftUI
 import MapKit
 import Domain
+import CoreTelephony
 
 struct DetailUserView: View {
     
     let user: User!
         
     var onLoaded: () -> Void = {}
+    let callController = CTCallCenter()
     
     var body: some View {
         
@@ -25,21 +27,21 @@ struct DetailUserView: View {
                     
                     Text(user.login.username)
                         .font(.title)
-                        .padding(.top, 5)
+                        .padding(.top, 6)
                     
                     Text(user.name.title + " " + user.name.first + " " + user.name.last)
                         .font(.headline)
-                        .padding(.top, 5)
+                        .padding(.top, 6)
                     
                     Text("\(user.gender)".uppercased())
                         .font(.subheadline)
                         .foregroundColor(.gray)
-                        .padding(.top, 5)
+                        .padding(.top, 6)
                     
                     Text("\(user.nat)".uppercased())
                         .font(.subheadline)
                         .foregroundColor(.gray)
-                        .padding(.top, 5)
+                        .padding(.top, 6)
                     
                     AsyncImage(url: URL(string: user.picture.large))
                         .scaledToFill()
@@ -48,19 +50,27 @@ struct DetailUserView: View {
                     Text("\(user.location.street.name) - \(user.location.street.number)")
                         .font(.subheadline)
                         .foregroundColor(.gray)
-                        .padding(.top, 5)
+                        .padding(.top, 6)
                     
                     Text("\(user.location.city) - \(user.location.state)")
                         .font(.subheadline)
                         .foregroundColor(.gray)
-                        .padding(.top, 5)
+                        .padding(.top, 6)
                     
                     Text("\(user.location.country)")
                         .font(.subheadline)
                         .foregroundColor(.gray)
-                        .padding(.top, 5)
+                        .padding(.top, 6)
+                    
+                    Link(user.phone, destination: URL(string: "tel:\(user.phone)")!)
+                        .font(.system(size: 14))
+                        .padding(.top, 2)
+
+                    Link(user.email, destination: URL(string: "mailto:\(user.email)")!)
+                        .font(.system(size: 12))
+                        .padding(.top, 2)
                 }
-                .padding(20)
+                .padding(24)
             }
             .navigationTitle("User Detail")
         }

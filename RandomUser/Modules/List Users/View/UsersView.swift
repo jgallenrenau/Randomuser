@@ -10,7 +10,7 @@ import Domain
 
 struct UsersView: View {
     
-    @ObservedObject var store: UsersViewModel
+    @ObservedObject var viewModel: UsersViewModel
     
     var onLoaded: () -> Void = {}
 
@@ -26,7 +26,7 @@ struct UsersView: View {
                         Image(systemName: "magnifyingglass")
                             .foregroundColor(.gray)
                         
-                        TextField("Search User", text: $store.searchQuery)
+                        TextField("Search User", text: $viewModel.searchQuery)
                             .autocapitalization(.none)
                             .disableAutocorrection(true)
                     }
@@ -37,12 +37,12 @@ struct UsersView: View {
                     .shadow(color: Color.black.opacity(0.06), radius: 5, x: -5, y: -5)
                     .overlay(
                         RoundedRectangle(cornerRadius: 16)
-                            .stroke(Color.gray, lineWidth: 2)
+                            .stroke(Color.gray, lineWidth: 4)
                     ).padding()
                 }
                 .padding()
                 
-                if store.searchQuery != "" {
+                if viewModel.searchQuery != "" {
                     
                     Text("Results finded".uppercased())
                         .font(.subheadline)
@@ -51,7 +51,7 @@ struct UsersView: View {
                         .padding(.horizontal, 24)
                 }
                 
-                if let fetchedUsers = store.fetchedUsers {
+                if let fetchedUsers = viewModel.fetchedUsers {
                     
                     if fetchedUsers.isEmpty {
                         
@@ -68,7 +68,7 @@ struct UsersView: View {
                         
                         ForEach(fetchedUsers.indices, id: \.self) { i in
                             
-                            let user: User = (store.fetchedUsers?[i])!
+                            let user: User = (viewModel.fetchedUsers?[i])!
                             
                             UserCellView(user: user)
                         }
@@ -76,7 +76,7 @@ struct UsersView: View {
                 }
                 else {
                     
-                    if store.searchQuery != "" {
+                    if viewModel.searchQuery != "" {
                         
                         ProgressView()
                             .padding(.top, 24)
@@ -90,35 +90,58 @@ struct UsersView: View {
                     .padding(.horizontal, 24)
                     .padding(.top, 32)
                 
-                LazyVGrid(columns: [GridItem(.adaptive(minimum: 160), spacing: 24)], spacing: 40) {
+                VStack(spacing: 15) {
                     
-                    ForEach(store.users.indices, id: \.self) { i in
+                    LazyVGrid(columns: [GridItem(.adaptive(minimum: 160), spacing: 24)], spacing: 40) {
                         
-                        let user: User = store.users[i]
-                        
-                        NavigationLink(destination: UsersFeatureAssembly.detailUsers(user)) {
+                        ForEach(viewModel.users.indices, id: \.self) { i in
                             
-                            VStack {
+                            let user: User = viewModel.users[i]
+                            
+                            NavigationLink(destination: UsersFeatureAssembly.detailUsers(user)) {
                                 
-                                UserCellView(user: user)
+                                VStack {
+                                    
+                                    UserCellView(user: user)
+                                }
                             }
                         }
                     }
-                }.onAppear {
                     
-                    onLoaded()
+                    if viewModel.offset == viewModel.users.count {
+                        
+                        ProgressView()
+                            .padding(.vertical)
+                            .onAppear(perform: {
+                                
+                                onLoaded()
+                            })
+                    }
+                    else {
+                        
+                        GeometryReader { reader -> Color in
+                            
+                            let minY = reader.frame(in: .global).minY
+                            let height = UIScreen.main.bounds.height / 1.3
+                            
+                            if !viewModel.users.isEmpty && minY < height {
+                                                                
+                                DispatchQueue.main.async {
+                                    
+                                    viewModel.offset += viewModel.users.count
+                                    onLoaded()
+                                }
+                            }
+                            
+                            return Color.clear
+                        }
+                        .frame(width: 20, height: 20)
+                    }
                 }
+                .padding(.vertical)
             }
             .navigationTitle("Random User")
         }
         .navigationViewStyle(.stack)
-    }
-}
-
-struct UsersView_Previews: PreviewProvider {
-    
-    static var previews: some View {
-        
-        UsersView(store: .init())
     }
 }

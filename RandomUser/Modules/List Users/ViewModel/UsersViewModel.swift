@@ -15,6 +15,7 @@ public final class UsersViewModel: ObservableObject {
     @Published var users: [User] = []
     @Published var searchQuery = ""
     @Published var fetchedUsers: [User]? = nil
+    @Published var offset: Int = 0
 
     var searchCancellable: AnyCancellable? = nil
 
@@ -23,7 +24,7 @@ public final class UsersViewModel: ObservableObject {
         searchCancellable = $searchQuery
             .removeDuplicates()
             .debounce(for: 0.6, scheduler:  RunLoop.main)
-            .sink(receiveValue: { [weak self]str in
+            .sink(receiveValue: { [weak self] str in
                 
                 guard let self = self else { return }
                 
