@@ -79,4 +79,11 @@ For the Tests we have also isolated them for each layer. Where we have the data 
 - Swift 5.9
 
 ### Installing
-The project uses Swift Package Manager for dependency management. Just open `SwiftCleanArchitecture.xcworkspace`, select the `App` target and run it.
+
+The project uses Swift Package Manager for dependency management. Just open `RandomUser.xcodeproj`, select the target `RandomUser` target and run it.
+
+For testing just only have to run:
+
+- DataTest
+- DomainTest
+- Presentation Test
