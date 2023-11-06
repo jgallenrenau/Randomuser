@@ -27,7 +27,7 @@ struct UserCellView: View {
                     
                     Text(user.login.username)
                         .font(.headline)
-                        .foregroundColor(.black)
+                        .foregroundColor(.gray)
                         .padding(.top, 2)
                     
                     Text(user.phone)
