@@ -63,11 +63,11 @@ struct DetailUserView: View {
                         .padding(.top, 6)
                     
                     Link(user.phone, destination: URL(string: "tel:\(user.phone)")!)
-                        .font(.system(size: 14))
+                        .font(.system(size: 16))
                         .padding(.top, 2)
 
                     Link(user.email, destination: URL(string: "mailto:\(user.email)")!)
-                        .font(.system(size: 12))
+                        .font(.system(size: 16))
                         .padding(.top, 2)
                 }
                 .padding(24)
