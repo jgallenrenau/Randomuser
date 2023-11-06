@@ -32,7 +32,6 @@ struct UsersView: View {
                     }
                     .padding(.vertical, 12)
                     .padding(.horizontal)
-                    .background(Color.white)
                     .shadow(color: Color.black.opacity(0.06), radius: 5, x: 5, y: 5)
                     .shadow(color: Color.black.opacity(0.06), radius: 5, x: -5, y: -5)
                     .overlay(
