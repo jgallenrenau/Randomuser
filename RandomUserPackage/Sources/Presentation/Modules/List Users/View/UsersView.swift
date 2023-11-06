@@ -37,7 +37,7 @@ struct UsersView: View {
                     .shadow(color: Color.black.opacity(0.06), radius: 5, x: -5, y: -5)
                     .overlay(
                         RoundedRectangle(cornerRadius: 16)
-                            .stroke(Color.gray, lineWidth: 4)
+                            .stroke(Color.gray, lineWidth: 3)
                     ).padding()
                 }
                 .padding()
@@ -45,7 +45,7 @@ struct UsersView: View {
                 if viewModel.searchQuery != "" {
                     
                     Text("Results finded".uppercased())
-                        .font(.subheadline)
+                        .font(.headline)
                         .foregroundColor(.gray)
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .padding(.horizontal, 24)
@@ -55,14 +55,14 @@ struct UsersView: View {
                     
                     if fetchedUsers.isEmpty {
                         
-                        Text("No results Founded")
+                        Text("No results Founded....")
                             .foregroundColor(.gray)
-                            .font(.body)
+                            .font(.system(size: 16))
                             .padding(.top, 24)
                         
                         Image("noResults")
                             .foregroundColor(.gray)
-                            .padding(.top, 12)
+                            .padding(.top, 8)
                     }
                     else {
                         
@@ -84,11 +84,10 @@ struct UsersView: View {
                 }
                 
                 Text("All Users".uppercased())
-                    .font(.subheadline)
+                    .font(.headline)
                     .foregroundColor(.gray)
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.horizontal, 24)
-                    .padding(.top, 32)
                 
                 VStack(spacing: 15) {
                     

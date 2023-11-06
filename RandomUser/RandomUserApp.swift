@@ -7,11 +7,13 @@
 
 import SwiftUI
 import SwiftData
+import Presentation
 
 @main
 struct RandomUserApp: App {
 
     var body: some Scene {
+        
         WindowGroup {
             
             UsersFeatureAssembly.usersFeature
