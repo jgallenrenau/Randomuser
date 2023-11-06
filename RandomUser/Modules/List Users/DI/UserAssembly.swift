@@ -18,9 +18,9 @@ public class UsersAssembly {
     
     public func build() -> some View {
         
-        let store: UsersViewModel = UsersViewModel()
-        var view: UsersView = UsersView(store: store)
-        let params = GetUsersUseCaseParams(page: 0)
+        let viewModel: UsersViewModel = UsersViewModel()
+        var view: UsersView = UsersView(viewModel: viewModel)
+        let params = GetUsersUseCaseParams(page: viewModel.offset)
         
         view.onLoaded = {
             
@@ -29,7 +29,7 @@ public class UsersAssembly {
                 switch result {
                     
                 case .success(let response):
-                    store.users = response
+                    viewModel.users.append(contentsOf: response)
 
                 case .failure(let error):
                     print(error)

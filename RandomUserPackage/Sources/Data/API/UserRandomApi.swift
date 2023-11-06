@@ -58,7 +58,6 @@ extension UserRandomApi: TargetType, AccessTokenAuthorizable {
             
         case .getUsers(let page, let results):
             return .requestParameters(parameters: ["page": page, "results": results], encoding: URLEncoding.default)
-//            return .requestPlain
         }
     }
     
