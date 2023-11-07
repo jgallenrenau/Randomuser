@@ -126,7 +126,7 @@ struct UsersView: View {
                                                                 
                                 DispatchQueue.main.async {
                                     
-                                    viewModel.offset += viewModel.users.count
+                                    viewModel.offset += 1
                                     onLoaded()
                                 }
                             }
