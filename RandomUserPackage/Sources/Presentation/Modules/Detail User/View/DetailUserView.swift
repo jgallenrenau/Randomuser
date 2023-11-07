@@ -58,6 +58,21 @@ struct DetailUserView: View {
                     .font(.system(size: 16))
                     .padding(.top, 2)
                 
+                Button(action: {
+                    
+                    // MARK: -TODO: Call to delete user -
+                    
+                }) {
+                    HStack{
+                        Image(systemName: "minus.circle.fill")
+                        Text("Delete user")
+                            .padding(.horizontal)
+                    }
+                    .padding()
+                }
+                .foregroundColor(Color.white)
+                .background(Color.red)
+                .cornerRadius(8)
             }
         }
         .navigationTitle("User Detail")
