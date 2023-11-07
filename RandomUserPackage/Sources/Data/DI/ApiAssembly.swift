@@ -17,4 +17,9 @@ public class ApiAssembly {
             baseUrlProvider: { url }
         ))
     }
+    
+    public static func makeUserDefaultsManager() -> UserDefaultsCoreImpl {
+        
+        return UserDefaultsCoreImpl()
+    }
 }

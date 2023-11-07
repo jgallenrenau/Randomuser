@@ -8,6 +8,7 @@
 import Foundation
 import Moya
 import Combine
+import Domain
 
 public class ApiManagerImpl: ApiManager {
 

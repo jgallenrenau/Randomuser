@@ -10,7 +10,8 @@
 final class MockRepository: Repository {
  
     var getUsers: ResultMethodStub<[User]> = ResultMethodStub()
-    
+    var saveUsers: ResultMethodStub<[User]> = ResultMethodStub()
+
     public init() {}
 
     func getUsers(page: Int, completion: @escaping (Result<[User], Swift.Error>) -> Void) {
@@ -18,4 +19,10 @@ final class MockRepository: Repository {
         getUsers.doCall()
         completion(getUsers.result)
     }
+    
+    func saveUsers(users: [Domain.User]) {
+        
+        saveUsers.doCall()
+    }
+
 }

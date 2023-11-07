@@ -9,4 +9,5 @@ import Foundation
 
 public protocol Repository {
     func getUsers(page: Int, completion: @escaping (Result<[User], Swift.Error>) -> Void)
+    func saveUsers(users: [User])
 }

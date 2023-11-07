@@ -13,6 +13,7 @@ final class RepositoryAssembly {
     
     static func makeUsersRepository() -> Repository {
         
-        return RepositoryImpl(apiManager: ApiAssembly.makeApiManager(url: "https://randomuser.me/api/"))
+        return RepositoryImpl(apiManager: ApiAssembly.makeApiManager(url: "https://randomuser.me/api/"), 
+                              userDefaultsManager: ApiAssembly.makeUserDefaultsManager())
     }
 }

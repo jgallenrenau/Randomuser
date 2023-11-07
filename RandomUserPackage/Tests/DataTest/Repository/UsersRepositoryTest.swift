@@ -12,12 +12,15 @@ import XCTest
 final class UsersRepositoryTest: XCTestCase {
     
     var mockApiManager: MockApiManager!
+    var mockUserDefaultaManager: MockUserDefaultsManager!
     var sut: RepositoryImpl!
     
     override func setUp() {
         
         mockApiManager = MockApiManager()
-        sut = RepositoryImpl(apiManager: mockApiManager)
+        mockUserDefaultaManager = MockUserDefaultsManager()
+
+        sut = RepositoryImpl(apiManager: mockApiManager, userDefaultsManager: mockUserDefaultaManager)
     }
     
     override func tearDown() {
