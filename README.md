@@ -1,6 +1,6 @@
 <p align="center">
   <img src="https://github.com/CodeEditApp/CodeEdit/assets/806104/4ad9a29c-d9c6-44b4-88b3-0944b75fc81e" height="128">
-  <h1 align="center">Randomuser</h1>
+  <h1 align="center">RandomUser</h1>
 </p>
 
 iOS Project implemented with Clean Layered Architecture and MVVM. (Can be used as Template project by replacing item name “Movie”). **More information in medium post**: <a href="https://tech.olx.com/clean-architecture-and-mvvm-on-ios-c9d167d9f5b3">Medium Post about Clean Architecture + MVVM</a>
