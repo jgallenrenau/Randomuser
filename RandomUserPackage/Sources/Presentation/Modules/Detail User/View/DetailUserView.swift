@@ -60,6 +60,12 @@ struct DetailUserView: View {
                 
             }
         }
+        Image("delete")
+            .scaledToFill()
+            .foregroundColor(.gray)
+            .clipShape(Circle())
+            .padding(.top, 10)
+
         .navigationTitle("User Detail")
     }
 }
@@ -68,6 +74,18 @@ struct DetailUserView_Previews: PreviewProvider {
     
     static var previews: some View {
         
-        DetailUserView(user: User(gender: "", name: Name(title: "", first: "", last: ""), location: Location(street: Street(number: 0, name: ""), city: "", state: "", country: "", coordinates: Coordinates(latitude: "", longitude: "")), email: "", login: Login(uuid: "", username: ""), phone: "", picture: Picture(large: "", thumbnail: ""), nat: ""))
+        DetailUserView(user: User(gender: "", 
+                                  name: Name(title: "", 
+                                             first: "",
+                                             last: ""),
+                                  location: Location(street: Street(number: 0, name: ""),
+                                                     city: "",
+                                                     state: "",
+                                                     country: "",
+                                                     coordinates: Coordinates(latitude: "", longitude: "")),
+                                  email: "",
+                                  login: Login(uuid: "", username: ""),
+                                  phone: "", picture: Picture(large: "", thumbnail: ""),
+                                  nat: ""))
     }
 }
