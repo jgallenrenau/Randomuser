@@ -85,3 +85,13 @@ For testing just only have to run:
 - DataTest
 - DomainTest
 - Presentation Test
+
+### Tasks under construction
+
+I am creating two layers in the repository layer. One will be the one that will call the repository, the Network layer
+and the other layer, the layer called "Persistence", where we will have a CRUD manager for data management.
+All of this stored in "Set" data sets (since access to these, since they are not ordered, is O(1).
+
+In this branch we have a preview of what was mentioned (it does not compile)
+
+ - feature/SaveData
